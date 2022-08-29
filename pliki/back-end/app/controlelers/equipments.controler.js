@@ -1,4 +1,3 @@
-const { findById } = require("../models/Equipment");
 const Equipment = require("../models/Equipment");
 
 function equipmentAdd(data, cb) {
@@ -54,12 +53,10 @@ function orderAdd(data, cb) {
     )
 };
 
-
-
 function upodateEquipment(id, data, cb) {
     Equipment.updateOne(
         { _id: id },
-         data,
+        data,
          function (err, equipment) {
         if (err) {
             cb(err)

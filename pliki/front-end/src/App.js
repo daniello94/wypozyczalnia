@@ -91,7 +91,7 @@ export default function App() {
           {userData && (
             <li>
               <Link
-                to="/vivesMachine">
+                to="/">
                 Nasze Maszyny
               </Link>
             </li>
@@ -153,7 +153,7 @@ export default function App() {
           } />
 
         <Route
-          path="/vivesMachine"
+          path="/"
           element={<VivesMachines
             dataUser={userData} />
           } />

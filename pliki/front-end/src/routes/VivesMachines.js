@@ -8,6 +8,7 @@ import Container from "../components/Conteiner";
 import Button from "../components/Button";
 import Error from "../components/Error";
 
+
 export default function VivesMachines(props) {
     const [status, setStatus] = useState([]);
 
@@ -37,13 +38,20 @@ export default function VivesMachines(props) {
                 setStatus(res.data)
             })
     };
-
-    function viveOneMachine(_id) {
+    function vivesSendOrder(_id) {
         machineResponse()
         axios.get('http://127.0.0.1:8080/machines/' + _id)
             .then((res) => {
                 setOneMachine(res.data)
             })
+    };
+
+    function viveOneMachine(_id) {
+        if (!props.dataUser) {
+            return alert("Musisz być zalogowany aby przjśc dalej :)")
+        } else if (props.dataUser) {
+            return vivesSendOrder(_id)
+        }
     };
 
     function questionOrder(_id) {
@@ -274,4 +282,4 @@ export default function VivesMachines(props) {
 
         </Container>
     )
-}
+};
