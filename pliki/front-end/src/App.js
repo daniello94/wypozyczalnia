@@ -33,6 +33,14 @@ export default function App() {
     return children;
   };
 
+  function viveRole() {
+    if (userData.user.role === 'employe') {
+      return "employe"
+    } else if (userData.user.role === 'admin') {
+      return "admin"
+    }
+  };
+
   const logOut = () => {
     localStorage.clear();
     setInterval();
@@ -97,7 +105,7 @@ export default function App() {
             </li>
           )}
 
-          {userData && userData.user.role === 'employe' && (
+          {userData && userData.user.role === viveRole() && (
             <li>
               <Link
                 to="/vivesOrder">
